@@ -164,6 +164,20 @@ Every published idea should originate from a deliberate thinking process.
 
 ---
 
+# Setup
+
+Enable the Mentat guardrail hook once per clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+The pre-commit hook enforces two rules: every artefact under `artefacts/` must carry a `Source:` pointer to its `knowledge/` origin, and HTML and YAML files must be well-formed (non-empty, closed, parseable). Override intentionally with `git commit --no-verify`.
+
+The full operating gates live at the top of `CLAUDE.md`.
+
+---
+
 # How To Use Mentat
 
 ## For new ideas

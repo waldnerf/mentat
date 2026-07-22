@@ -1,51 +1,54 @@
-/* Mentat Design Tokens v1.0
+/* Mentat Design Tokens v2.0 — Marginalia (Ascetic)
    Canonical source: brand/03-Design-System.md
-   Keep this file in sync with the Design Tokens section of that document. */
+   Keep this file in sync with section 10 of that document. */
 
 :root {
-  /* Colour */
-  --paper: #F7F6F2;
-  --surface: #FFFFFF;
-  --ink: #1A1D21;
-  --charcoal: #22262B;
-  --muted: #6B7178;
-  --line: #E3E1DB;
-  --accent: #00A2FF;       /* bright electric signal: logo, highlights, markers */
-  --accent-dark: #003E7A;  /* deep companion: buttons, links, small labels, hover */
-  --accent-tint: #E0F1FF;  /* wash and chip backgrounds */
+  /* colour */
+  --stone:        #E6E8E6;
+  --stone-raised: #EFF0EE;
+  --ink:          #1F2124;
+  --ink-70:       #3E4145;
+  --ink-55:       #55585C;
+  --ink-40:       #6C6F73;
+  --ink-20:       #B7B9B7;
+  --rule:         rgba(31,33,36,0.16);
+  --rule-faint:   rgba(31,33,36,0.08);
+  --pen:          #26418F;
+  --pen-hover:    #1B3070;
+  --error:        #8C2F2A;
+  --success:      #2E5D45;
+  --warn:         #7A5A1E;
 
-  /* Type families */
-  --font-display: Georgia, "Times New Roman", serif;
-  --font-body: Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  /* type */
+  --font-sans: Archivo, "Helvetica Neue", Inter, system-ui, sans-serif;
+  --font-mono: "Commit Mono", ui-monospace, "JetBrains Mono", monospace;
 
-  /* Type scale */
-  --text-display: 3rem;
-  --text-h1: 2.25rem;
-  --text-h2: 1.5rem;
-  --text-h3: 1.125rem;
-  --text-body: 1rem;
-  --text-small: 0.875rem;
-  --text-mono: 0.9375rem;
+  /* space */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 24px;  --s-6: 38px;  --s-7: 64px;  --s-8: 96px;  --s-9: 152px;
 
-  /* Spacing (4px base) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
-  --space-9: 96px;
+  /* layout */
+  --rail:      150px;
+  --gutter:    38px;
+  --content:   720px;
+  --page-max:  1180px;
+  --page-pad:  52px;
 
-  /* Radius, border, elevation */
-  --radius-sm: 4px;
-  --radius: 6px;
-  --border: 1px solid var(--line);
-  --shadow: 0 1px 2px rgba(0,0,0,0.04);
+  --radius: 0;
+  --ease:   cubic-bezier(0.22, 0.61, 0.36, 1);
+}
 
-  /* Layout */
-  --container: 1080px;
-  --measure: 68ch;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --stone:        #1C1E1C;
+    --stone-raised: #252725;
+    --ink:          #E6E8E6;
+    --ink-70:       #C2C5C3;
+    --ink-55:       #9DA0A2;
+    --ink-40:       #7E8183;
+    --rule:         rgba(230,232,230,0.16);
+    --rule-faint:   rgba(230,232,230,0.08);
+    --pen:          #7B9AE8;
+    --pen-hover:    #9DB4EE;
+  }
 }

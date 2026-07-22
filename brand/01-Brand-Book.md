@@ -1,57 +1,22 @@
-# Mentat Brand Book v1.0
+# Mentat Brand Book v2.0
 
-## Purpose
-
-The Mentat brand represents a disciplined approach to thinking, building and sharing reusable knowledge.
-
-It communicates:
-
-- structured thinking
-- practical expertise
-- technical depth
-- intellectual craftsmanship
-
-The brand exists to make complex ideas understandable, actionable and reusable.
+Direction 05 · Ascetic. Design language: Marginalia. The visual system is specified in `brand/03-Design-System.md`; this book covers the idea, positioning, values, voice and mark.
 
 ---
 
-# Brand Positioning
+# Brand Idea
 
-## Mentat
+Mentat is mental discipline applied to knowledge. A mentat is a human trained to think without instruments. The brand should look like that: no ornament, no apparatus, nothing on the page that is not load-bearing.
 
-A personal operating model for thinking, building and sharing reusable knowledge.
-
-Mentat transforms ideas into structured knowledge assets and turns those assets into reusable systems.
+The objective is not to build a brand around technology. The objective is to demonstrate a way of thinking.
 
 ---
 
-# Brand Relationship
+# Positioning
 
-Mentat is the operating model.
+Mentat is a personal operating model for thinking, building and sharing reusable knowledge. It transforms ideas into structured knowledge assets and turns those assets into reusable systems.
 
-The personal brand is the expression of that model.
-
-The relationship:
-
-
-Person
-
-↓
-
-Mentat Operating Model
-
-↓
-
-Knowledge Assets
-
-↓
-
-Published Artefacts
-
-
-The objective is not to build a brand around technology.
-
-The objective is to demonstrate a way of thinking.
+The relationship: a person works through the Mentat operating model, which produces canonical knowledge assets, from which published artefacts are generated.
 
 ---
 
@@ -63,171 +28,110 @@ Transform complex ideas into practical knowledge systems that people can underst
 
 # Vision
 
-Build a recognised body of work around:
-
-- AI engineering
-- knowledge systems
-- intelligent systems
-- practical application of emerging technology
+Build a recognised body of work around AI engineering, knowledge systems, intelligent systems and the practical application of emerging technology.
 
 ---
 
 # Audience
 
-## Primary
+Primary: AI leaders, technology executives, architects, engineers, consultants, builders.
 
-- AI leaders
-- technology executives
-- architects
-- engineers
-- consultants
-- builders
-
-## Secondary
-
-- professionals interested in structured thinking
-- organisations adopting AI
-- people building knowledge-driven systems
+Secondary: professionals interested in structured thinking, organisations adopting AI, people building knowledge-driven systems.
 
 ---
 
-# Brand Values
+# Values
+
+## Restraint
+
+Remove everything that is not load-bearing. If meaning is not lost, the element goes.
 
 ## Clarity
 
-Make complexity understandable.
-
----
+Make complexity understandable. Hierarchy comes from space and scale, not decoration.
 
 ## Structure
 
 Organise ideas into reusable models.
 
----
-
-## Practicality
-
-Connect concepts to real-world application.
-
----
-
 ## Craftsmanship
 
-Create work that is thoughtful, precise and durable.
-
----
+The system has no card or gradient to hide a mistake behind. Precision is the standard, not the aspiration.
 
 ## Reusability
 
 Build assets that create value beyond their original context.
 
----
-
 ## Consistency
 
-Create a coherent body of work over time.
+One coherent body of work over time. The same rules on every page.
 
 ---
 
-# Brand Personality
+# Personality
 
 Mentat should feel:
 
-## Calm
+Calm. No hype, no urgency.
 
-No hype.
+Precise. Clear thinking and deliberate language.
 
-No unnecessary urgency.
+Disciplined. Every decision is tight on purpose.
 
----
+Unhurried. The type does the persuading; the copy does not try.
 
-## Precise
+Technical. Understands systems, architecture and implementation.
 
-Clear thinking and deliberate language.
-
----
-
-## Curious
-
-Explore ideas deeply.
-
----
-
-## Practical
-
-Focus on application and outcomes.
-
----
-
-## Technical
-
-Understand systems, architecture and implementation.
-
----
-
-## Generous
-
-Share knowledge openly.
+Generous. Shares knowledge openly.
 
 ---
 
 # Content Pillars
 
-## Thinking
+Thinking. Frameworks, mental models and perspectives.
 
-Frameworks, mental models and perspectives.
+Building. Systems, architectures, experiments and implementations.
 
----
+Knowledge systems. Methods for capturing, structuring and evolving knowledge.
 
-## Building
+AI engineering. Practical approaches to building intelligent systems.
 
-Systems, architectures, experiments and implementations.
-
----
-
-## Knowledge Systems
-
-Methods for capturing, structuring and evolving knowledge.
+Governance. Making technology reliable, scalable and responsible.
 
 ---
 
-## AI Engineering
+# Voice
 
-Practical approaches to building intelligent systems.
+Plain, declarative, unhurried.
+
+- Sentence case everywhere except captions and the wordmark.
+- Short declaratives. Full stops. No exclamation marks.
+- No hype words: no "unlock", "supercharge", "seamlessly", "powerful", "revolutionise".
+- Name things by what the reader controls, not by how the system is built.
+- An action keeps the same verb through its whole flow.
+- British spelling: artefacts, organise, recognise.
+- Do not use em dashes.
+
+Full voice rules, including error and empty states, are in `brand/03-Design-System.md` section 8, and `brand/02-Writing-Standards.md`.
 
 ---
 
-## Governance
+# Mark
 
-Making technology reliable, scalable and responsible.
+There is no icon. No rounded square, no monogram, no glyph.
 
----
+The wordmark is `Mentat`, set in Archivo 600, uppercase, in ink. It is never coloured, never locked to a symbol, never set in another weight.
 
-# Communication Principles
-
-All Mentat communication should:
-
-- start with the conclusion
-- communicate top-down
-- use structured thinking
-- favour frameworks over opinions
-- favour visuals where useful
-- create reusable knowledge
+The brand's only mark is the tick: a 16 by 2px ultramarine bar at the head of the rail. It reads as a pen stroke in a margin, a reader's annotation, which is the whole thesis of the product. It appears once per page and never changes size or colour. See `brand/03-Design-System.md` section 7.
 
 ---
 
 # Brand Promise
 
-Mentat helps transform complexity into structured knowledge and structured knowledge into practical systems.
+Mentat helps transform complexity into structured knowledge, and structured knowledge into practical systems.
 
 ---
 
 # Guiding Statement
 
-Think clearly.
-
-Build systematically.
-
-Share knowledge.
-
-Create systems that compound.
+Think clearly. Build systematically. Share knowledge. Create systems that compound.

@@ -2,7 +2,7 @@
 
 ## Status
 
-Canonical source. Version 1.0.
+Canonical source. Version 2.0, Marginalia (Ascetic) direction.
 
 The generated artefact is `artefacts/published/index.html`. When this file changes, regenerate the artefact. Do not edit the HTML as the source of truth.
 
@@ -10,9 +10,7 @@ The generated artefact is `artefacts/published/index.html`. When this file chang
 
 # Purpose
 
-Introduce Mentat as a personal knowledge operating system and demonstrate a way of thinking, not a brand around technology.
-
-The home page should make a first-time visitor understand, in one screen, what Mentat is and why it is different: knowledge is created once, artefacts are generated many times.
+Introduce Mentat as a personal knowledge operating system and demonstrate a way of thinking, not a brand around technology. A first-time visitor should understand in one screen what Mentat is: knowledge is created once, artefacts are generated many times.
 
 ---
 
@@ -24,51 +22,47 @@ Secondary: professionals interested in structured thinking, and organisations ad
 
 ---
 
-# Key Message
-
-Knowledge is created once. Artefacts are generated many times.
-
-The canonical Markdown knowledge asset is the source of truth. Derived outputs are generated from that source.
-
----
-
 # Design Reference
 
-The page consumes the Mentat design tokens.
+Built in the Marginalia direction. See `brand/03-Design-System.md`.
 
-- Tokens: `brand/assets/tokens.css` (canonical values in `brand/03-Design-System.md`)
-- Icons: `brand/assets/icons/`
-- Voice: `brand/02-Writing-Standards.md`
+- Tokens: `brand/assets/tokens.css`
+- Type: Archivo (loaded from Google Fonts), JetBrains Mono for code
+- Accent: `--pen` ultramarine, used only for the tick, links, focus and the active nav item
+- No cards, no buttons, no shadows, radius 0. Hierarchy from space, scale and one rule line.
 
-For a self-contained deployed artefact, the tokens and the icons used on the page are inlined into the HTML. The canonical source remains in `brand/`.
+The tokens used on the page are inlined into the HTML so the deployed artefact is self-contained. The canonical source remains in `brand/`.
 
 ---
 
 # Structure
 
-The page presents one primary message per view, top-down, with generous white space and a single accent colour.
+Left-aligned to the 720px content column. The rail carries the tick and the descriptor. The empty right side of the hero is intentional and must not be filled.
 
-## 1. Header
+## Header
 
-- Wordmark: Mentat, with the M mark.
-- Navigation: Thinking, Knowledge, Building, About. Anchors to sections on this page in version 1.0.
+- Wordmark: Mentat, Archivo 600, uppercase.
+- Right slot: a single link, "About".
 
-## 2. Hero
+## Rail
 
-- Eyebrow: Personal knowledge operating system.
-- Heading: Knowledge is created once. Artefacts are generated many times.
-- Supporting line: Mentat is a Markdown-first system for thinking, building and sharing reusable knowledge. It turns ideas into structured knowledge assets, and structured knowledge into practical systems.
-- Actions: Explore the system (primary), About Mentat (secondary).
+- The tick at the top: a 16 by 2px ultramarine bar.
+- Descriptor in caption style: "Personal knowledge operating system".
+- Meta line: "Markdown-first. One source.".
 
-## 3. Guiding Statement Strip
+## Hero
 
-Think clearly. Build systematically. Share knowledge. Create systems that compound.
+- Display line (display-l, weight 200), with "generated many times" stepped to weight 500: "Knowledge is created once. Artefacts are generated many times."
+- Standfirst (body-l): "A system for thinking, building and sharing reusable knowledge. It turns ideas into structured knowledge assets, and structured knowledge into practical systems."
+- Actions: primary text link "Explore the system"; secondary text "About Mentat".
 
-## 4. Content Pillars
+## Guiding statement
 
-Section intro: Five areas of a single body of work. Every artefact belongs to one system. Consistency compounds recognition over time.
+One line, ink: "Think clearly. Build systematically. Share knowledge. Create systems that compound."
 
-Cards, each with one icon:
+## Content pillars
+
+Section rule above. Opener "Content pillars". Five pillars as ruled text, each a name and one line, separated by faint rules. No cards.
 
 1. Thinking. Frameworks, mental models and perspectives that make complexity understandable.
 2. Building. Systems, architectures, experiments and implementations that put ideas to work.
@@ -76,29 +70,17 @@ Cards, each with one icon:
 4. AI engineering. Practical approaches to building intelligent systems that are reliable in use.
 5. Governance. Making technology reliable, scalable and responsible as it grows.
 
-## 5. The Mentat Flow
+## The Mentat flow
 
-Section intro: One deliberate path from idea to reuse. Not every thought becomes an asset. Every published idea originates from a deliberate thinking process.
+Section rule above. Opener "The Mentat flow". Four steps as ruled text: Idea, Knowledge asset, Artefacts, Published. No boxes.
 
-Steps:
+## About
 
-1. Idea. Capture the thought without forcing structure.
-2. Knowledge asset. Structure it into a reusable, canonical Markdown source.
-3. Artefacts. Generate many expressions from one source of truth.
-4. Published. Share, gather feedback, and improve the system.
+Section rule above. Opener "A way of thinking". One paragraph on optimising for clarity over volume, systems over isolated outputs, reuse over reinvention, and the canonical source model. Values as a plain caption line, not chips.
 
-## 6. About
+## Footer
 
-Heading: A way of thinking, not a brand around technology.
-
-Body: Mentat optimises for clarity over volume, systems over isolated outputs, and reuse over reinvention. The canonical Markdown knowledge asset is the source of truth. Derived outputs, from websites to presentations to talks, are generated from that source and regenerated as it improves.
-
-Values as tags: Clarity, Structure, Practicality, Craftsmanship, Reusability, Consistency.
-
-## 7. Footer
-
-- Mentat, a knowledge operating system.
-- Built Markdown-first. Version 1.0.
+Top rule. "Mentat, a knowledge operating system." and "Built Markdown-first. Version 2.0." in small, muted.
 
 ---
 
@@ -107,18 +89,5 @@ Values as tags: Clarity, Structure, Practicality, Craftsmanship, Reusability, Co
 When this source changes:
 
 1. Update the copy or structure here first.
-2. Regenerate `artefacts/published/index.html` to match, keeping the design tokens and icon style unchanged.
+2. Regenerate `artefacts/published/index.html` to match, keeping the Marginalia tokens and rules unchanged.
 3. Commit the source and the regenerated artefact together.
-
----
-
-# Future Sections
-
-Version 1.0 is a single page. Planned expansion, when the underlying knowledge exists to support it:
-
-- Thinking: published frameworks and models.
-- Knowledge: selected canonical assets.
-- Building: projects and systems.
-- Speaking: talks and workshops.
-
-These should be added only when real knowledge assets exist to link to.

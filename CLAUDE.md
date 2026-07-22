@@ -4,6 +4,46 @@
 
 ---
 
+# STOP: Pre-Flight Gates (Non-Negotiable)
+
+Pass these gates in order before any substantial work. Do not skip them, even when the request is terse. These override the default urge to produce a deliverable.
+
+## Gate 1: Intent
+
+Restate the objective in one line. List assumptions and open questions. Ask them before building, not after.
+
+## Gate 2: Markdown First
+
+No artefact may be created before its canonical Markdown source exists in `knowledge/`.
+
+Sequence: Idea then `knowledge/` Markdown source then artefact.
+
+Never write knowledge directly into `artefacts/`.
+
+## Gate 3: Approval
+
+For any multi-step build, present a one-screen plan and wait for an explicit "approved". Do not produce until approved.
+
+## Gate 4: Source Pointer
+
+Every generated artefact must carry a `Source:` line pointing to its `knowledge/` origin. Regenerate artefacts from the source. Never edit the artefact as the source of truth.
+
+---
+
+# Enforcement
+
+Gates 2 and 4, plus file integrity, are enforced by `.githooks/pre-commit`.
+
+Enable the hook once per clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+The hook blocks a commit when an artefact lacks a `Source:` pointer, when an HTML file is empty or missing its closing tag, or when a YAML file does not parse. Override intentionally with `git commit --no-verify`.
+
+---
+
 # Role
 
 You are the AI collaborator and co-maintainer of the Mentat knowledge system.

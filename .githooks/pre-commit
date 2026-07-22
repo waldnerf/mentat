@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Mentat pre-commit guardrails
+# Enforces: (2) Markdown-first source pointer on artefacts, and file integrity.
+# Enable once per clone:  git config core.hooksPath .githooks
+# Override intentionally: git commit --no-verify
+
+set -u
+fail=0
+
+while IFS= read -r -d '' f; do
+  [ -f "$f" ] || continue
+
+  # Integrity: HTML must be non-empty and properly closed (catches truncation)
+  case "$f" in
+    *.html)
+      if [ ! -s "$f" ]; then echo "BLOCK  empty HTML file: $f"; fail=1; fi
+      if ! grep -qi '</html>' "$f"; then echo "BLOCK  HTML missing </html> (truncated?): $f"; fail=1; fi
+      ;;
+  esac
+
+  # Integrity: YAML must parse
+  case "$f" in
+    *.yml|*.yaml)
+      if ! python3 -c "import sys,yaml; yaml.safe_load(open(sys.argv[1]))" "$f" >/dev/null 2>&1; then
+        echo "BLOCK  invalid YAML: $f"; fail=1
+      fi
+      ;;
+  esac
+
+  # Markdown-first: text artefacts must point back to a canonical knowledge source
+  case "$f" in
+    artefacts/*)
+      case "$f" in
+        *.html|*.md|*.css|*.js)
+          if ! grep -qiE 'source:' "$f"; then
+            echo "BLOCK  artefact lacks a 'Source:' pointer to knowledge/: $f"; fail=1
+          fi
+          ;;
+      esac
+      ;;
+  esac
+done < <(git diff --cached --name-only -z --diff-filter=ACM)
+
+if [ "$fail" -ne 0 ]; then
+  echo ""
+  echo "Mentat guardrails blocked this commit. Fix the items above,"
+  echo "or override intentionally with: git commit --no-verify"
+  exit 1
+fi
+exit 0

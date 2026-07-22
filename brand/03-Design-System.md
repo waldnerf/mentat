@@ -400,6 +400,8 @@ Do not:
 Flagged rather than settled. These are the places where this guide is a draft:
 
 1. Mono face. Commit Mono is specified for neutrality against Archivo. IBM Plex Mono is warmer and more characterful if the Markdown substrate should feel more present. Worth a side-by-side on a real code block before committing. The published site currently loads JetBrains Mono, the named fallback, since Commit Mono is not on Google Fonts.
-2. Dark mode. Specified but untested. An ascetic stone brand may be better served by having no dark mode at all than by a mediocre one.
+2. Dark mode. Resolved for the published site: it defaults to the operating system preference, with a text toggle in the footer to switch and remember the choice. The palette is still lightly tested; revisit if it proves distracting.
 3. Long-form article template. The rail works for a hero. Whether it holds for a 2,000-word article, as a running metadata column, a footnote gutter, or nothing, is unresolved and is the next thing to design.
 4. `display-xl` at 76px. Currently unused; the hero is set at `display-l`. Either commit to it on the homepage or delete the step, since an unused scale step is a guide that lies.
+
+5. Measure on the home page. The published v2.0 home page loosens the tight measure in sections 3 and 9: the hero and body fill the content column rather than leaving the right side empty. This is a deliberate site-level override, not a change to the default measure for other artefacts. Whether to fold it back into the core spec is open.

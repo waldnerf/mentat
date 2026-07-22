@@ -29,7 +29,9 @@ Built in the Marginalia direction. See `brand/03-Design-System.md`.
 - Tokens: `brand/assets/tokens.css`
 - Type: Archivo (loaded from Google Fonts), JetBrains Mono for code
 - Accent: `--pen` ultramarine, used only for the tick, links, focus and the active nav item
-- No cards, no buttons, no shadows, radius 0. Hierarchy from space, scale and one rule line.
+- No cards, no marketing buttons, no shadows, radius 0. Hierarchy from space, scale and one rule line.
+- Theme: defaults to the operating system preference. A text toggle in the footer switches light and dark and remembers the choice (localStorage, degrades gracefully).
+- Measure: v2.0 site decision. The hero and body fill the 720px content column, loosening the tight measure in design system sections 3 and 9. The empty right side is not used on this page.
 
 The tokens used on the page are inlined into the HTML so the deployed artefact is self-contained. The canonical source remains in `brand/`.
 
@@ -80,7 +82,7 @@ Section rule above. Opener "A way of thinking". One paragraph on optimising for 
 
 ## Footer
 
-Top rule. "Mentat, a knowledge operating system." and "Built Markdown-first. Version 2.0." in small, muted.
+Top rule. "Mentat, a knowledge operating system." and "Built Markdown-first. Version 2.0." in small, muted, plus the theme toggle.
 
 ---
 

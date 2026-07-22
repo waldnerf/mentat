@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Mentat</title>
 <meta name="description" content="A system for thinking, building and sharing reusable knowledge. Knowledge is created once. Artefacts are generated many times.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23E6E8E6'/%3E%3Crect x='8' y='15' width='16' height='2' fill='%2326418F'/%3E%3C/svg%3E">
@@ -14,6 +15,7 @@
 <style>
   /* Mentat tokens — canonical source: brand/03-Design-System.md, brand/assets/tokens.css */
   :root {
+    color-scheme: light;
     --stone:#E6E8E6; --stone-raised:#EFF0EE; --ink:#1F2124; --ink-70:#3E4145;
     --ink-55:#55585C; --ink-40:#6C6F73; --ink-20:#B7B9B7;
     --rule:rgba(31,33,36,0.16); --rule-faint:rgba(31,33,36,0.08);
@@ -24,8 +26,16 @@
     --rail:150px; --gutter:38px; --content:720px; --page-max:1180px; --page-pad:52px;
     --ease:cubic-bezier(0.22,0.61,0.36,1);
   }
+  /* dark palette, shared by explicit choice and (when set to auto) OS preference */
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --stone:#1C1E1C; --stone-raised:#252725; --ink:#E6E8E6; --ink-70:#C2C5C3;
+    --ink-55:#9DA0A2; --ink-40:#7E8183; --rule:rgba(230,232,230,0.16);
+    --rule-faint:rgba(230,232,230,0.08); --pen:#7B9AE8; --pen-hover:#9DB4EE;
+  }
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+      color-scheme: dark;
       --stone:#1C1E1C; --stone-raised:#252725; --ink:#E6E8E6; --ink-70:#C2C5C3;
       --ink-55:#9DA0A2; --ink-40:#7E8183; --rule:rgba(230,232,230,0.16);
       --rule-faint:rgba(230,232,230,0.08); --pen:#7B9AE8; --pen-hover:#9DB4EE;
@@ -64,10 +74,9 @@
   /* Hero */
   .hero { padding-top:78px; padding-bottom:var(--s-8); }
   .display { font-size:60px; line-height:1.02; font-weight:200; letter-spacing:-.035em;
-             color:var(--ink); max-width:13ch; margin:0; animation:fade .24s var(--ease); }
+             color:var(--ink); margin:0; animation:fade .24s var(--ease); }
   .display strong { font-weight:500; }
-  .standfirst { font-size:17px; line-height:1.7; font-weight:300; color:var(--ink-70);
-                max-width:40ch; margin:40px 0 0; }
+  .standfirst { font-size:17px; line-height:1.7; font-weight:300; color:var(--ink-70); margin:40px 0 0; }
   .actions { display:flex; align-items:baseline; gap:26px; margin-top:44px; }
   @media (max-width:900px){ .display { font-size:48px; letter-spacing:-.03em; } }
   @media (max-width:640px){ .display { font-size:40px; } }
@@ -82,7 +91,7 @@
 
   /* Guiding line */
   .guiding { font-size:24px; line-height:1.25; font-weight:400; letter-spacing:-.02em;
-             color:var(--ink); max-width:24ch; margin:var(--s-8) 0 0; }
+             color:var(--ink); margin:var(--s-8) 0 0; }
 
   /* Sections as ruled text */
   .section { margin-top:var(--s-7); padding-top:var(--s-7); border-top:1px solid var(--rule); }
@@ -94,10 +103,8 @@
   .row .idx { font-family:var(--font-mono); font-size:13px; color:var(--ink-55); }
   .row h3 { font-size:18px; line-height:1.35; font-weight:500; letter-spacing:-.01em;
             color:var(--ink); margin:0 0 6px; }
-  .row p { font-size:15px; line-height:1.7; font-weight:300; color:var(--ink-70); margin:0; max-width:52ch; }
-  .flow-line { font-size:18px; line-height:1.5; font-weight:300; color:var(--ink); margin:0; }
-  .flow-line span { color:var(--ink-40); }
-  .about p { font-size:15px; line-height:1.7; font-weight:300; color:var(--ink-70); max-width:52ch; margin:0; }
+  .row p { font-size:15px; line-height:1.7; font-weight:300; color:var(--ink-70); margin:0; }
+  .about p { font-size:15px; line-height:1.7; font-weight:300; color:var(--ink-70); margin:0; }
   .values { font-size:11px; line-height:1.7; font-weight:500; letter-spacing:.04em;
             text-transform:uppercase; color:var(--ink-55); margin:var(--s-5) 0 0; }
 
@@ -105,6 +112,10 @@
   footer { margin-top:var(--s-8); padding:var(--s-5) 0 var(--s-7); border-top:1px solid var(--rule);
            display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--s-3);
            font-size:13px; color:var(--ink-55); }
+  .foot-right { display:inline-flex; gap:var(--s-4); align-items:baseline; }
+  .theme-toggle { font:inherit; font-size:13px; color:var(--ink-55); background:none; border:0;
+                  padding:0; cursor:pointer; }
+  .theme-toggle:hover { color:var(--ink); }
 
   @keyframes fade { from { opacity:0; } to { opacity:1; } }
   @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
@@ -162,11 +173,35 @@
 
       <footer>
         <span>Mentat, a knowledge operating system.</span>
-        <span>Built Markdown-first. Version 2.0.</span>
+        <span class="foot-right">Built Markdown-first. Version 2.0.
+          <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark</button>
+        </span>
       </footer>
     </main>
   </div>
 
 </div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.querySelector('.theme-toggle');
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    try { var saved = localStorage.getItem('mentat-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+    function effective() {
+      var t = root.getAttribute('data-theme');
+      if (t === 'dark' || t === 'light') return t;
+      return mq.matches ? 'dark' : 'light';
+    }
+    function label() { btn.textContent = effective() === 'dark' ? 'Light' : 'Dark'; }
+    btn.addEventListener('click', function () {
+      var next = effective() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('mentat-theme', next); } catch (e) {}
+      label();
+    });
+    mq.addEventListener('change', label);
+    label();
+  })();
+</script>
 </body>
 </html>

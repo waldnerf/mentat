@@ -30,7 +30,7 @@ Built in the Marginalia direction. See `brand/03-Design-System.md`.
 - Type: Archivo (loaded from Google Fonts), JetBrains Mono for code
 - Accent: `--pen` ultramarine, used only for the tick, links, focus and the active nav item
 - No cards, no marketing buttons, no shadows, radius 0. Hierarchy from space, scale and one rule line.
-- Theme: defaults to the operating system preference. A text toggle in the footer switches light and dark and remembers the choice (localStorage, degrades gracefully).
+- Theme: defaults to the operating system preference. A visible Light/Dark toggle sits in the header (top of page) and remembers the choice (localStorage, degrades gracefully).
 - Measure: v2.0 site decision. The hero and body fill the 720px content column, loosening the tight measure in design system sections 3 and 9. The empty right side is not used on this page.
 
 The tokens used on the page are inlined into the HTML so the deployed artefact is self-contained. The canonical source remains in `brand/`.
@@ -44,7 +44,7 @@ Left-aligned to the 720px content column. The rail carries the tick and the desc
 ## Header
 
 - Wordmark: Mentat, Archivo 600, uppercase.
-- Right slot: a single link, "About".
+- Right slot: the "About" link and a Light/Dark theme toggle (a two-option control, active state marked). This overrides the design system's "single link right" for this page.
 
 ## Rail
 
@@ -82,7 +82,7 @@ Section rule above. Opener "A way of thinking". One paragraph on optimising for 
 
 ## Footer
 
-Top rule. "Mentat, a knowledge operating system." and "Built Markdown-first. Version 2.0." in small, muted, plus the theme toggle.
+Top rule. "Mentat, a knowledge operating system." and "Built Markdown-first. Version 2.0." in small, muted.
 
 ---
 

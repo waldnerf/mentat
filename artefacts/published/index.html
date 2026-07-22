@@ -26,7 +26,6 @@
     --rail:150px; --gutter:38px; --content:720px; --page-max:1180px; --page-pad:52px;
     --ease:cubic-bezier(0.22,0.61,0.36,1);
   }
-  /* dark palette, shared by explicit choice and (when set to auto) OS preference */
   :root[data-theme="dark"] {
     color-scheme: dark;
     --stone:#1C1E1C; --stone-raised:#252725; --ink:#E6E8E6; --ink-70:#C2C5C3;
@@ -50,11 +49,20 @@
   @media (max-width:640px){ .page { padding-inline:24px; } }
 
   /* Header */
-  .header { display:flex; justify-content:space-between; align-items:baseline;
-            padding-top:22px; padding-bottom:var(--s-7); }
+  .header { display:flex; justify-content:space-between; align-items:center;
+            padding-top:22px; padding-bottom:var(--s-7); gap:var(--s-4); flex-wrap:wrap; }
   .wordmark { font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:.02em; color:var(--ink); }
+  .header-right { display:inline-flex; align-items:center; gap:var(--s-5); }
   .nav-link { color:var(--ink-55); font-size:13px; font-weight:400; text-decoration:none; }
   .nav-link:hover { color:var(--ink); }
+
+  /* Theme toggle (header) */
+  .theme { display:inline-flex; border:1px solid var(--rule); }
+  .theme-opt { font:inherit; font-size:12px; letter-spacing:.02em; line-height:1;
+               padding:6px 12px; background:none; border:0; color:var(--ink-55); cursor:pointer; }
+  .theme-opt + .theme-opt { border-left:1px solid var(--rule); }
+  .theme-opt:hover { color:var(--ink); }
+  .theme-opt[aria-pressed="true"] { color:var(--ink); font-weight:500; background:var(--stone-raised); }
 
   /* Layout: rail + content */
   .layout { display:grid; grid-template-columns:var(--rail) 1fr; }
@@ -112,10 +120,6 @@
   footer { margin-top:var(--s-8); padding:var(--s-5) 0 var(--s-7); border-top:1px solid var(--rule);
            display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--s-3);
            font-size:13px; color:var(--ink-55); }
-  .foot-right { display:inline-flex; gap:var(--s-4); align-items:baseline; }
-  .theme-toggle { font:inherit; font-size:13px; color:var(--ink-55); background:none; border:0;
-                  padding:0; cursor:pointer; }
-  .theme-toggle:hover { color:var(--ink); }
 
   @keyframes fade { from { opacity:0; } to { opacity:1; } }
   @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
@@ -126,7 +130,13 @@
 
   <header class="header">
     <span class="wordmark">Mentat</span>
-    <a class="nav-link" href="#about">About</a>
+    <nav class="header-right">
+      <a class="nav-link" href="#about">About</a>
+      <div class="theme" role="group" aria-label="Colour theme">
+        <button class="theme-opt" type="button" data-set="light">Light</button>
+        <button class="theme-opt" type="button" data-set="dark">Dark</button>
+      </div>
+    </nav>
   </header>
 
   <div class="layout">
@@ -173,9 +183,7 @@
 
       <footer>
         <span>Mentat, a knowledge operating system.</span>
-        <span class="foot-right">Built Markdown-first. Version 2.0.
-          <button class="theme-toggle" type="button" aria-label="Switch colour theme">Dark</button>
-        </span>
+        <span>Built Markdown-first. Version 2.0.</span>
       </footer>
     </main>
   </div>
@@ -184,7 +192,7 @@
 <script>
   (function () {
     var root = document.documentElement;
-    var btn = document.querySelector('.theme-toggle');
+    var opts = Array.prototype.slice.call(document.querySelectorAll('.theme-opt'));
     var mq = window.matchMedia('(prefers-color-scheme: dark)');
     try { var saved = localStorage.getItem('mentat-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
     function effective() {
@@ -192,15 +200,19 @@
       if (t === 'dark' || t === 'light') return t;
       return mq.matches ? 'dark' : 'light';
     }
-    function label() { btn.textContent = effective() === 'dark' ? 'Light' : 'Dark'; }
-    btn.addEventListener('click', function () {
-      var next = effective() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('mentat-theme', next); } catch (e) {}
-      label();
+    function sync() {
+      var e = effective();
+      opts.forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.set === e)); });
+    }
+    opts.forEach(function (o) {
+      o.addEventListener('click', function () {
+        root.setAttribute('data-theme', o.dataset.set);
+        try { localStorage.setItem('mentat-theme', o.dataset.set); } catch (e) {}
+        sync();
+      });
     });
-    mq.addEventListener('change', label);
-    label();
+    mq.addEventListener('change', sync);
+    sync();
   })();
 </script>
 </body>

@@ -43,7 +43,7 @@ Left-aligned to the 720px content column. The rail carries the tick and the desc
 
 ## Header
 
-- Wordmark: Mentat, Archivo 600, uppercase.
+- Wordmark: the Mentat long logo (`brand/assets/logo/MENTAT-long-light.png` on light grounds, `MENTAT-long-dark.png` on dark), inlined as a base64 data URI in the header at ~20px tall, swapped by theme. Replaces the plain Archivo text wordmark.
 - Right slot: an "AI vocabulary" link (to the sister page `ai-concepts-wordcloud.html`), the "About" link, and a Light/Dark theme toggle (a two-option control, active state marked). This overrides the design system's "single link right" for this page.
 
 ## Rail

@@ -44,7 +44,7 @@ Left-aligned to the 720px content column. The rail carries the tick and the desc
 ## Header
 
 - Wordmark: Mentat, Archivo 600, uppercase.
-- Right slot: the "About" link and a Light/Dark theme toggle (a two-option control, active state marked). This overrides the design system's "single link right" for this page.
+- Right slot: an "AI vocabulary" link (to the sister page `ai-concepts-wordcloud.html`), the "About" link, and a Light/Dark theme toggle (a two-option control, active state marked). This overrides the design system's "single link right" for this page.
 
 ## Rail
 
@@ -76,20 +76,6 @@ Section rule above. Opener "Content pillars". Five pillars as ruled text, each a
 
 Section rule above. Opener "The Mentat flow". Four steps as ruled text: Idea, Knowledge asset, Artefacts, Published. No boxes.
 
-## About
+## Selected artefact
 
-Section rule above. Opener "A way of thinking". One paragraph on optimising for clarity over volume, systems over isolated outputs, reuse over reinvention, and the canonical source model. Values as a plain caption line, not chips.
-
-## Footer
-
-Top rule. "Mentat, a knowledge operating system." and "Built Markdown-first. Version 2.0." in small, muted.
-
----
-
-# Regeneration Notes
-
-When this source changes:
-
-1. Update the copy or structure here first.
-2. Regenerate `artefacts/published/index.html` to match, keeping the Marginalia tokens and rules unchanged.
-3. Commit the source and the regenerated artefact together.
+Section rule above. Opener "Selected artefact". One row linking to the Enterprise AI vocabulary sister page (`ai-concepts-wordcloud.html`): a reviewed C-level map of the 79 concepts leaders need, sized by importance and grouped into five families. The copy makes the case for keeping the AI vocabulary current: when the language drifts, so does the ability to question and govern decisions framed in it. Generated from `knowledge/projects/enterprise-ai-concepts/enterprise-ai-concepts-curated.md`. Demonstrates the one-source-many-artefacts thesis in place.

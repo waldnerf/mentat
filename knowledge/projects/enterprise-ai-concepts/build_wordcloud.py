@@ -29,6 +29,11 @@ PALETTE = {
 }
 CATS = list(PALETTE.keys())
 
+import base64 as _b64
+_LOGODIR = "/sessions/sharp-bold-pascal/mnt/mentat/brand/assets/logo/"
+LOGO_LIGHT = _b64.b64encode(open(_LOGODIR+"MENTAT-long-light.png","rb").read()).decode()
+LOGO_DARK  = _b64.b64encode(open(_LOGODIR+"MENTAT-long-dark.png","rb").read()).decode()
+
 def parse(path):
     rows=[]
     for line in open(path, encoding="utf-8"):
@@ -92,7 +97,15 @@ TEMPLATE = r"""<!doctype html>
   .header{display:flex;justify-content:space-between;align-items:center;
     padding-top:22px;padding-bottom:var(--s-7);gap:var(--s-4);flex-wrap:wrap}
   .wordmark{font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);
-    text-decoration:none;border:0}
+    text-decoration:none;border:0;display:inline-flex;align-items:center}
+  .wordmark .logo{height:20px;width:auto;display:block}
+  .wordmark .logo-dark{display:none}
+  :root[data-theme="dark"] .wordmark .logo-light{display:none}
+  :root[data-theme="dark"] .wordmark .logo-dark{display:block}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]):not([data-theme="dark"]) .wordmark .logo-light{display:none}
+    :root:not([data-theme="light"]):not([data-theme="dark"]) .wordmark .logo-dark{display:block}
+  }
   .header-right{display:inline-flex;align-items:center;gap:var(--s-5)}
   .nav-link{color:var(--ink-55);font-size:13px;font-weight:400;text-decoration:none;border:0}
   .nav-link:hover{color:var(--ink)}
@@ -178,7 +191,7 @@ TEMPLATE = r"""<!doctype html>
 <body>
 <div class="page">
   <header class="header">
-    <a class="wordmark" href="index.html">Mentat</a>
+    <a class="wordmark" href="index.html" aria-label="Mentat"><img class="logo logo-light" src="data:image/png;base64,__LOGO_LIGHT__" alt="Mentat" height="20"><img class="logo logo-dark" src="data:image/png;base64,__LOGO_DARK__" alt="" aria-hidden="true" height="20"></a>
     <nav class="header-right">
       <a class="nav-link" href="index.html">Home</a>__NAVEXTRA__
       <div class="theme" role="group" aria-label="Colour theme">
@@ -350,6 +363,7 @@ def build(rows, out, srcfile, title, desc, caption, heading, standfirst, explain
         "__SRCFILE__": srcfile, "__TITLE__": title, "__DESC__": desc,
         "__CAPTION__": caption, "__HEADING__": heading, "__STANDFIRST__": standfirst,
         "__EXPLAINER__": explainer, "__NAVEXTRA__": navextra, "__RAILEXTRA__": railextra,
+        "__LOGO_LIGHT__": LOGO_LIGHT, "__LOGO_DARK__": LOGO_DARK,
     }
     for k,v in repl.items(): html = html.replace(k, v)
     open(PUB+out, "w", encoding="utf-8").write(html)
@@ -365,4 +379,6 @@ build(curated, "ai-concepts-wordcloud.html",
       "Enterprise AI vocabulary",
       "A working vocabulary for <strong>enterprise AI.</strong>",
       "The concepts that most shape strategy, value, governance and risk, curated for the C-suite. Sized by importance, grouped into five families, and generated from one source so it stays current.",
-      '<p class="lede">The language of AI changes quickly. Terms that were unfamiliar a year ago now sit in budgets, board papers, and regulation. When the vocabulary drifts, so does the ability to ask a precise question, test a vendor&rsquo;s claim, or tell a real capability from a relabelled one. Keeping the words current is how leaders hold authority over decisions increasingly framed in them. The most important terms sit in the middle; read outward
+      '<p class="lede">The language of AI changes quickly. Terms that were unfamiliar a year ago now sit in budgets, board papers, and regulation. When the vocabulary drifts, so does the ability to ask a precise question, test a vendor&rsquo;s claim, or tell a real capability from a relabelled one. Keeping the words current is how leaders hold authority over decisions increasingly framed in them. The most important terms sit in the middle; read outward.</p>',
+      "",
+      "")

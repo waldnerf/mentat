@@ -118,7 +118,7 @@ Full voice rules, including error and empty states, are in `brand/03-Design-Syst
 
 # Mark
 
-There is no icon. No rounded square, no monogram, no glyph.
+The brand has no logo icon. No rounded square, no monogram, no logo glyph. Functional interface icons are permitted as a restrained monoline, ink-only set, see `brand/03-Design-System.md` section 5.
 
 The wordmark is `Mentat`, set in Archivo 600, uppercase, in ink. It is never coloured, never locked to a symbol, never set in another weight.
 
@@ -128,10 +128,4 @@ The brand's only mark is the tick: a 16 by 2px ultramarine bar at the head of th
 
 # Brand Promise
 
-Mentat helps transform complexity into structured knowledge, and structured knowledge into practical systems.
-
----
-
-# Guiding Statement
-
-Think clearly. Build systematically. Share knowledge. Create systems that compound.
+Mentat helps transform complexity into structured knowledge, and structured knowle

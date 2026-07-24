@@ -34,6 +34,10 @@
   --page-max:  1180px;
   --page-pad:  52px;
 
+  /* icon */
+  --icon-stroke: 1.5px;
+  --icon-size:   24px;
+
   --radius: 0;
   --ease:   cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -48,7 +52,4 @@
     --ink-40:       #7E8183;
     --rule:         rgba(230,232,230,0.16);
     --rule-faint:   rgba(230,232,230,0.08);
-    --pen:          #7B9AE8;
-    --pen-hover:    #9DB4EE;
-  }
-}
+   

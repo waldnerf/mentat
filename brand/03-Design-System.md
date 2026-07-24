@@ -1,6 +1,8 @@
-# Mentat Design System v2.0
+# Mentat Design System v2.1
 
 Direction 05 · Ascetic. Internal name for the design language: Marginalia.
+
+Change in v2.1: functional interface icons are permitted under a monoline, ink-only constraint (section 5, Icons). The mark is unchanged, the brand still has no logo icon.
 
 Source: this file is the canonical brand and design source. Artefacts are generated from it. The machine-readable tokens live in `brand/assets/tokens.css` and must be kept in sync with section 10.
 
@@ -231,6 +233,18 @@ Header row in `caption` style, `--ink-55`. 1px `--rule` under the header, `--rul
 
 Fields are a single bottom rule, not a box: 1px `--rule`, no top, left or right border, no fill, no radius. Label above in `caption`. On focus the bottom rule becomes 1px `--pen`, plus the standard focus ring.
 
+## Icons
+
+Icons are permitted as a functional aid to scanning, not as decoration. They are monoline: a single stroke, no fill, drawn on a 24px grid at `--icon-stroke`. They sit in `--ink` or `--ink-70` and never in `--pen`. The accent stays reserved for the tick, links, focus and active nav, so an icon never carries colour and never competes with the one live blue on the page.
+
+- One stroke weight only, 1.5px at 24px. No filled icons, no duotone, no second colour.
+- Size 20 to 24px, with 24px the ceiling. Never oversized, never a hero element.
+- One icon per row or card, aligned to a fixed leading column. Icons do not repeat as bullets and do not become dividers.
+- Schematic, not illustrative. An icon labels a category, it does not draw a scene.
+- The removal test still applies. If the row reads correctly without the icon, and space or weight already carries the hierarchy, leave it out.
+
+This is a functional set. It does not change the mark: the brand still has no logo icon, and the tick remains the only mark that carries the pen colour (section 7).
+
 ## Focus
 
 `outline: 2px solid var(--pen); outline-offset: 3px;` on every interactive element. Never removed, never replaced with a subtle alternative. This is also the fourth and last sanctioned use of the accent.
@@ -251,7 +265,7 @@ Respect `prefers-reduced-motion: reduce` by disabling the load fade entirely.
 
 # 7. Mark
 
-There is no icon. No rounded square, no monogram, no glyph. Adding one reintroduces exactly the problem this direction solves.
+There is no brand icon. No rounded square, no monogram, no logo glyph. Adding one reintroduces exactly the problem this direction solves. This governs the mark only. Functional interface icons are permitted under the restraint set out in section 5.
 
 ## Wordmark
 
@@ -293,7 +307,8 @@ Do not:
 - Introduce a card, shadow, gradient, or any radius above 0.
 - Put navigation, buttons or images in the rail.
 - Warm the ground back toward cream. The accent stops working immediately.
-- Add a logo icon.
+- Add a brand logo icon, monogram or mascot.
+- Colour an icon, fill it, or draw it in more than one stroke weight. Icons are monoline and ink only, see section 5.
 - Fill the empty right side of the hero. It is the design.
 
 ---
@@ -334,6 +349,10 @@ Do not:
   --content:   720px;
   --page-max:  1180px;
   --page-pad:  52px;
+
+  /* icon */
+  --icon-stroke: 1.5px;
+  --icon-size:   24px;
 
   --radius: 0;
   --ease:   cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -387,21 +406,4 @@ Do not:
   --color-ink-55: #55585C;
   --color-ink-40: #6C6F73;
   --color-pen:    #26418F;
-  --font-sans:    Archivo, "Helvetica Neue", system-ui, sans-serif;
-  --font-mono:    "Commit Mono", ui-monospace, monospace;
-  --radius-none:  0;
-}
-```
-
----
-
-# 11. Open decisions
-
-Flagged rather than settled. These are the places where this guide is a draft:
-
-1. Mono face. Commit Mono is specified for neutrality against Archivo. IBM Plex Mono is warmer and more characterful if the Markdown substrate should feel more present. Worth a side-by-side on a real code block before committing. The published site currently loads JetBrains Mono, the named fallback, since Commit Mono is not on Google Fonts.
-2. Dark mode. Resolved for the published site: it defaults to the operating system preference, with a text toggle in the footer to switch and remember the choice. The palette is still lightly tested; revisit if it proves distracting.
-3. Long-form article template. The rail works for a hero. Whether it holds for a 2,000-word article, as a running metadata column, a footnote gutter, or nothing, is unresolved and is the next thing to design.
-4. `display-xl` at 76px. Currently unused; the hero is set at `display-l`. Either commit to it on the homepage or delete the step, since an unused scale step is a guide that lies.
-
-5. Measure on the home page. The published v2.0 home page loosens the tight measure in sections 3 and 9: the hero and body fill the content column rather than leaving the right side empty. This is a deliberate site-level override, not a change to the default measure for other artefacts. Whether to fold it back into the core spec is open.
+ 
